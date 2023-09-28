@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, ForbiddenException } from '@nestjs/common';
 import { MutantDto } from '../models/mutantDto';
 
 @Injectable()
@@ -48,6 +48,6 @@ export class MutantesService {
       }
     }
 
-    return false;
+    throw new ForbiddenException('Not a mutant');
   }
 }
